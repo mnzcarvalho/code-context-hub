@@ -66,7 +66,7 @@ function Header({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
           </h1>
         </div>
         <span className="text-xs md:text-sm text-muted-foreground tracking-widest uppercase">
-          // code context for AI
+          // project contexto for IA
         </span>
       </div>
       <nav className="flex">
