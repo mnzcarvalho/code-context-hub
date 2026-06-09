@@ -98,14 +98,14 @@ function Sidebar({
   disabled: boolean;
 }) {
   return (
-    <aside className="rounded-xl neon-border bg-card/40 backdrop-blur-sm p-3 flex flex-col gap-3 min-h-0">
+    <aside className="rounded-xl border border-border/60 bg-card/40 backdrop-blur-sm p-3 flex flex-col gap-3 min-h-0">
       <button
         onClick={() => setActive(TREE_FILE)}
         disabled={disabled}
         className={cn(
           "flex items-center gap-2 px-3 py-2 rounded-md border border-border text-left text-sm transition-colors",
           active.name === TREE_FILE.name && !disabled
-            ? "bg-primary/15 text-primary neon-glow"
+            ? "bg-primary/15 text-primary"
             : "hover:bg-primary/10 text-foreground",
           disabled && "opacity-40 cursor-not-allowed"
         )}
@@ -115,7 +115,7 @@ function Sidebar({
       </button>
 
       <div className="flex-1 flex flex-col min-h-0">
-        <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground px-2 py-1 border-b border-border/60 mb-2">
+        <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground px-2 py-1 border-b border-border/60 mb-2">
           // arquivos
         </div>
         <ul className="flex-1 overflow-y-auto space-y-1 pr-1">
@@ -129,7 +129,7 @@ function Sidebar({
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 rounded-md text-left text-sm transition-colors",
                     isActive
-                      ? "bg-primary/15 text-primary neon-glow border border-primary/40"
+                      ? "bg-primary/15 text-primary border border-primary/40"
                       : "hover:bg-primary/10 text-foreground/90 border border-transparent",
                     disabled && "opacity-40 cursor-not-allowed"
                   )}
@@ -142,7 +142,7 @@ function Sidebar({
           })}
         </ul>
       </div>
-      <div className="text-[10px] text-muted-foreground/70 px-2">
+      <div className="text-xs text-muted-foreground/70 px-2">
         {mockFiles.length + 1} arquivo(s)
       </div>
     </aside>
