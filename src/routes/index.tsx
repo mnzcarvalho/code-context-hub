@@ -61,7 +61,7 @@ function Header({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
         <div className="flex items-center gap-2">
           <span className="size-2 rounded-full bg-primary" />
           <h1 className="text-sm md:text-base font-bold tracking-[0.25em] uppercase">
-            context_f2p
+            code-context
           </h1>
         </div>
         <span className="text-xs md:text-sm text-muted-foreground tracking-widest uppercase">
