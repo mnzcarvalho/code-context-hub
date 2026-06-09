@@ -56,15 +56,15 @@ function Header({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
     { id: "exclusao", label: "exclusão" },
   ];
   return (
-    <header className="rounded-xl neon-border bg-card/40 backdrop-blur-sm">
+    <header className="rounded-xl border border-border/60 bg-card/40 backdrop-blur-sm">
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/60">
         <div className="flex items-center gap-2">
-          <span className="size-2 rounded-full bg-primary shadow-[0_0_10px_var(--neon)]" />
-          <h1 className="text-sm md:text-base font-bold tracking-[0.25em] uppercase neon-glow">
+          <span className="size-2 rounded-full bg-primary" />
+          <h1 className="text-sm md:text-base font-bold tracking-[0.25em] uppercase">
             context_f2p
           </h1>
         </div>
-        <span className="text-[10px] md:text-xs text-muted-foreground tracking-widest uppercase">
+        <span className="text-xs md:text-sm text-muted-foreground tracking-widest uppercase">
           // code context for AI
         </span>
       </div>
@@ -76,7 +76,7 @@ function Header({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
             className={cn(
               "flex-1 px-4 py-3 text-xs md:text-sm uppercase tracking-[0.2em] transition-colors border-r border-border/60 last:border-r-0",
               tab === t.id
-                ? "bg-primary/10 text-primary neon-glow"
+                ? "bg-primary/10 text-primary"
                 : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
             )}
           >
