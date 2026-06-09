@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { AlertTriangle, FileText, FolderTree, Play, Plus, Trash2 } from "lucide-react";
 import { mockFiles, treeTxt, type MockFile } from "@/lib/mockData";
 import { cn } from "@/lib/utils";
+import { generateTreeFile } from "@/lib/tree-actions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -187,6 +188,26 @@ function HomeView({ file }: { file: MockFile }) {
 
 function ConfigView({ pathX, setPathX }: { pathX: string; setPathX: (v: string) => void }) {
   const [executed, setExecuted] = useState<string | null>(null);
+  const handleGenerate = async () => {
+  try {
+    console.log("Botão clicado");
+
+    const result = await generateTreeFile({
+      data: {
+        path: pathX,
+      },
+    });
+
+    console.log(result);
+
+    setExecuted(new Date().toLocaleTimeString());
+  } catch (error) {
+    console.error("ERRO FRONTEND:");
+    console.error(error);
+
+    alert("Erro ao gerar tree.txt");
+  }
+};
   return (
     <div className="p-6 md:p-8 overflow-auto">
       <h2 className="text-lg uppercase tracking-[0.3em] text-primary mb-1">
@@ -218,7 +239,7 @@ function ConfigView({ pathX, setPathX }: { pathX: string; setPathX: (v: string) 
                 <span className="text-primary">Pasta Y</span> (dentro da Pasta X).
               </p>
               <pre className="text-sm text-muted-foreground bg-background/60 border border-border/40 rounded p-2 overflow-x-auto">
-{`${pathX || "<pasta-x>"}/
+                {`${pathX || "<pasta-x>"}/
 └── Y/
     ├── tree.txt
     ├── index-html.txt
@@ -239,7 +260,7 @@ function ConfigView({ pathX, setPathX }: { pathX: string; setPathX: (v: string) 
         </div>
 
         <button
-          onClick={() => setExecuted(new Date().toLocaleTimeString())}
+          onClick={handleGenerate}
           className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-primary/15 hover:bg-primary/25 border border-primary text-primary uppercase tracking-[0.25em] text-sm transition-all"
         >
           <Play className="size-4 group-hover:translate-x-0.5 transition-transform" />
