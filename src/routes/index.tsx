@@ -189,23 +189,23 @@ function ConfigView({ pathX, setPathX }: { pathX: string; setPathX: (v: string) 
   const [executed, setExecuted] = useState<string | null>(null);
   return (
     <div className="p-6 md:p-8 overflow-auto">
-      <h2 className="text-lg uppercase tracking-[0.3em] text-primary neon-glow mb-1">
+      <h2 className="text-lg uppercase tracking-[0.3em] text-primary mb-1">
         // configuração
       </h2>
-      <p className="text-xs text-muted-foreground mb-6">
+      <p className="text-sm text-muted-foreground mb-6">
         Configure o caminho do projeto que será convertido em contexto .txt para IA.
       </p>
 
       <div className="space-y-6 max-w-2xl">
         <div>
-          <label className="block text-xs uppercase tracking-widest text-primary mb-2">
+          <label className="block text-sm uppercase tracking-widest text-primary mb-2">
             Path da pasta original (Pasta X)
           </label>
           <input
             value={pathX}
             onChange={(e) => setPathX(e.target.value)}
             placeholder="C:/caminho/para/seu/projeto"
-            className="w-full bg-background/60 border border-border rounded-md px-3 py-2.5 text-sm font-mono text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:neon-border"
+            className="w-full bg-background/60 border border-border rounded-md px-3 py-2.5 text-sm font-mono text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50"
           />
         </div>
 
@@ -217,7 +217,7 @@ function ConfigView({ pathX, setPathX }: { pathX: string; setPathX: (v: string) 
                 Os arquivos convertidos em <span className="text-primary">.txt</span> serão salvos na{" "}
                 <span className="text-primary">Pasta Y</span> (dentro da Pasta X).
               </p>
-              <pre className="text-xs text-muted-foreground bg-background/60 border border-border/40 rounded p-2 overflow-x-auto">
+              <pre className="text-sm text-muted-foreground bg-background/60 border border-border/40 rounded p-2 overflow-x-auto">
 {`${pathX || "<pasta-x>"}/
 └── Y/
     ├── tree.txt
@@ -240,14 +240,14 @@ function ConfigView({ pathX, setPathX }: { pathX: string; setPathX: (v: string) 
 
         <button
           onClick={() => setExecuted(new Date().toLocaleTimeString())}
-          className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-primary/15 hover:bg-primary/25 border border-primary text-primary uppercase tracking-[0.25em] text-sm neon-glow neon-border transition-all"
+          className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-primary/15 hover:bg-primary/25 border border-primary text-primary uppercase tracking-[0.25em] text-sm transition-all"
         >
           <Play className="size-4 group-hover:translate-x-0.5 transition-transform" />
           Salvar Configurações / Executar Script
         </button>
 
         {executed && (
-          <div className="text-xs text-primary/80 border-l-2 border-primary pl-3">
+          <div className="text-sm text-primary/80 border-l-2 border-primary pl-3">
             ✓ Script executado às {executed} — {mockFiles.length + 1} arquivos gerados em Pasta Y.
           </div>
         )}
