@@ -277,10 +277,10 @@ function ExclusionView({
 
   return (
     <div className="p-6 md:p-8 overflow-auto">
-      <h2 className="text-lg uppercase tracking-[0.3em] text-primary neon-glow mb-1">
+      <h2 className="text-lg uppercase tracking-[0.3em] text-primary mb-1">
         // exclusão
       </h2>
-      <p className="text-xs text-muted-foreground mb-6">
+      <p className="text-sm text-muted-foreground mb-6">
         Regras de ignorar para arquivos e pastas (estilo <span className="text-primary">.gitignore</span>).
         Itens listados aqui não serão incluídos no contexto exportado.
       </p>
@@ -292,11 +292,11 @@ function ExclusionView({
             onChange={(e) => setNewRule(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && add()}
             placeholder="ex: node_modules/  •  *.log  •  .env"
-            className="flex-1 bg-background/60 border border-border rounded-md px-3 py-2.5 text-sm font-mono focus:outline-none focus:border-primary focus:neon-border"
+            className="flex-1 bg-background/60 border border-border rounded-md px-3 py-2.5 text-sm font-mono focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50"
           />
           <button
             onClick={add}
-            className="inline-flex items-center gap-1.5 px-4 rounded-md border border-primary text-primary hover:bg-primary/15 uppercase tracking-widest text-xs neon-border"
+            className="inline-flex items-center gap-1.5 px-4 rounded-md border border-primary text-primary hover:bg-primary/15 uppercase tracking-widest text-xs"
           >
             <Plus className="size-4" /> add
           </button>
@@ -325,7 +325,7 @@ function ExclusionView({
           ))}
         </ul>
 
-        <div className="text-[11px] text-muted-foreground tracking-wider">
+        <div className="text-xs text-muted-foreground tracking-wider">
           // {rules.length} regra(s) ativa(s) · serão aplicadas na próxima execução
         </div>
       </div>
